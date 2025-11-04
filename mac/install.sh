@@ -4,13 +4,17 @@ set -e
 
 echo "🔧 開発環境セットアップを開始します..."
 
-# Homebrew の存在チェック
+# homebrewが実行できるか確認
+# できなければインストールし、パスを通す必要がある。
+# その際、honmebrewのプロンプトに移行する。
+# zprofileを作るディレクトリはそこでいいのか？
 if ! command -v brew &> /dev/null; then
   echo "🍺 Homebrewが見つかりません。インストールします..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
 
 echo "✅ Homebrew 準備完了"
 
